@@ -37,7 +37,7 @@ func (c *Cache) Add(key string, value Value) {
 		c.nBytes += int64(len(key)) + int64(value.Len())
 	}
 	if c.maxBytes != 0 && c.nBytes > c.maxBytes {
-
+		c.RemoveOldest()
 	}
 }
 
